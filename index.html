@@ -1,228 +1,99 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Carta Día de la Madre</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carta a Mamá</title>
   <style>
     body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(to top right, #ffe6f0, #fff0f5);
-      font-family: 'Segoe UI', sans-serif;
-      overflow-x: hidden;
-    }
-
-    .card-container {
-      position: relative;
-      width: 300px;
-      height: 400px;
-      margin: 100px auto;
-      perspective: 1000px;
+      font-family: sans-serif;
+      background-color: #ffeef2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
     }
 
     .card {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      transform-style: preserve-3d;
-      transition: transform 1s;
-    }
-
-    .card.open {
-      transform: rotateY(180deg);
-    }
-
-    .card .front, .card .back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background-color: #fff;
-      backface-visibility: hidden;
+      background: white;
       border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
       padding: 20px;
+      max-width: 600px;
+      width: 90%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       overflow-y: auto;
     }
 
-    .card .front {
-      background: linear-gradient(to bottom right, #ffb6c1, #ff69b4);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: white;
-    }
-
-    .card .front h1 {
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-
-    .card .front button {
-      padding: 10px 20px;
-      font-size: 16px;
-      border: none;
-      border-radius: 10px;
-      background-color: white;
-      color: #ff69b4;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .card .front button:hover {
-      background-color: #ffe4ec;
-    }
-
-    .card .back {
-      transform: rotateY(180deg);
-      color: #333;
+    h1 {
+      color: #e91e63;
       text-align: center;
     }
 
-    .card .back h2 {
-      margin-top: 0;
-      color: #e91e63;
+    p {
+      text-align: center;
+      font-size: 1.1rem;
     }
 
-    .card .back p {
+    .galeria {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
       margin-top: 20px;
-      line-height: 1.6;
     }
 
-    .gallery {
-      margin-top: 20px;
-    }
-
-    .gallery img {
-      width: 100%;
-      margin: 10px 0;
+    .galeria img {
+      width: 45%;
+      max-width: 120px;
       border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      animation: fadeIn 2s ease forwards;
+      object-fit: cover;
     }
 
-    .video-container {
+    video {
+      width: 100%;
       margin-top: 20px;
-    }
-
-    .video-container iframe {
-      width: 100%;
-      height: 180px;
       border-radius: 10px;
-      border: none;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .hearts {
-      position: absolute;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: -1;
-    }
-
-    .heart {
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background-color: pink;
-      transform: rotate(45deg);
-      animation: float 6s infinite ease-in;
-    }
-
-    .heart::before, .heart::after {
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background-color: pink;
-      border-radius: 50%;
-    }
-
-    .heart::before {
-      top: -10px;
-      left: 0;
-    }
-
-    .heart::after {
-      left: -10px;
-      top: 0;
-    }
-
-    @keyframes float {
-      0% {
-        transform: translateY(0) scale(1) rotate(45deg);
-        opacity: 1;
+    @media (max-width: 600px) {
+      p {
+        font-size: 1rem;
       }
-      100% {
-        transform: translateY(-800px) scale(1.5) rotate(45deg);
-        opacity: 0;
+
+      .galeria img {
+        width: 80px;
       }
     }
   </style>
 </head>
 <body>
+  <div class="card">
+    <h1>Querida Mamá,</h1>
+    <p>
+      Gracias por tu amor infinito, tus abrazos que sanan y tu sabiduría que guía.
+      Eres el corazón de nuestra familia y te amo con todo mi ser.
+      ¡Feliz Día de la Madre!
+    </p>
 
-<div class="card-container">
-  <div class="card" id="card">
-    <div class="front">
-      <h1>¡Feliz Día Mamá! 💖</h1>
-      <button onclick="openCard()">Abrir Carta</button>
+    <div class="galeria">
+      <img src="imagenes/imagen1.jpg" alt="Foto 1" />
+      <img src="imagenes/imagen2.jpg" alt="Foto 2" />
+      <img src="imagenes/imagen3.jpg" alt="Foto 3" />
+      <img src="imagenes/imagen4.jpg" alt="Foto 4" />
+      <img src="imagenes/imagen5.jpg" alt="Foto 5" />
+      <img src="imagenes/imagen6.jpg" alt="Foto 6" />
+      <img src="imagenes/imagen7.jpg" alt="Foto 7" />
+      <img src="imagenes/imagen8.jpg" alt="Foto 8" />
     </div>
-    <div class="back">
-      <h2>Querida Mamá,</h2>
-      <p>
-        Gracias por tu amor infinito, tus abrazos que sanan y tu sabiduría que guía.
-        Eres el corazón de nuestra familia y te amo con todo mi ser.
-        ¡Feliz Día de la Madre!
-      </p>
-      <div class="gallery">
-        <img src="imagenes/imagen1.jpg" alt="Foto 1">
-        <img src="imagenes/imagen2.jpg" alt="Foto 2">
-        <img src="imagenes/imagen3.jpg" alt="Foto 3">
-        <img src="imagenes/imagen4.jpg" alt="Foto 4">
-        <img src="imagenes/imagen5.jpg" alt="Foto 5">
-        <img src="imagenes/imagen6.jpg" alt="Foto 6">
-        <img src="imagenes/imagen7.jpg" alt="Foto 7">
-        <img src="imagenes/imagen8.jpg" alt="Foto 8">
-      </div>
-      <h2>Feliz día a la mejor mamá</h2>
-      <video controls class="video-container">
-        <source src="videos/mivideo.mp4" type="video/mp4">
-      </video>
-    </div>
+
+    <h2 style="text-align:center; color:#e91e63;">Feliz día a la mejor mamá</h2>
+
+    <video controls>
+      <source src="videos/mivideo.mp4" type="video/mp4">
+      Tu navegador no soporta el video.
+    </video>
   </div>
-</div>
-
-<div class="hearts" id="hearts"></div>
-
-<script>
-  function openCard() {
-    document.getElementById('card').classList.add('open');
-  }
-
-  // Corazones animados
-  const heartsContainer = document.getElementById('hearts');
-
-  function createHeart() {
-    const heart = document.createElement('div');
-    heart.className = 'heart';
-    heart.style.left = Math.random() * 100 + 'vw';
-    heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
-    heartsContainer.appendChild(heart);
-    setTimeout(() => heart.remove(), 6000);
-  }
-
-  setInterval(createHeart, 500);
-</script>
-
 </body>
 </html>
